@@ -45,6 +45,13 @@ public class DateUtil {
 	{
 		System.out.printf("%d%s %s %d %s%n", day, getDaySuffix(day), monthsEN[month], year, dayOfWeeksEN[dayOfWeek]);
 	}
+
+	public static String getLongDateTR(int day, int month, int year)
+	{
+		int dayOfWeek = getDayOfWeek(day, month, year);
+
+		return String.format("%d %s %d %s", day, monthsTR[month], year, dayOfWeeksTR[dayOfWeek]);
+	}
 	
 	public static int getDayOfWeek(int day, int month, int year)
 	{

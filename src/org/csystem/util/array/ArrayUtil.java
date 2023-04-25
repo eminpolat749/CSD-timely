@@ -77,8 +77,8 @@ public class ArrayUtil {
 	{
 		int maxVal = max(data);
 
-		for (int i = 0; i < data.length; ++i) {
-			int charCount = (int)floor(data[i] * count / (double)maxVal);
+		for (int val : data) {
+			int charCount = (int)floor(val * count / (double)maxVal);
 
 			while (charCount-- > 0)
 				System.out.print(ch);
@@ -104,8 +104,8 @@ public class ArrayUtil {
 	{
 		int [] counts = new int[n + 1];
 
-		for (int i = 0; i < a.length; ++i)
-			++counts[a[i]];
+		for (int val : a)
+			++counts[val];
 
 
 		return counts;
@@ -128,17 +128,18 @@ public class ArrayUtil {
 		
 		return a;
 	}
+
+
 	
 	public static int [] join(int [] a, int [] b)
 	{
 		int [] arr = new int[a.length + b.length];
 		int idx = 0;
+
+		for (int j : a) arr[idx++] = j;
 		
-		for (int i = 0; i < a.length; ++i)
-			arr[idx++] = a[i];
-		
-		for (int i = 0; i < b.length; ++i)
-			arr[idx++] = b[i];
+		for (int j : b)
+			arr[idx++] = j;
 		
 		
 		return arr;
@@ -194,9 +195,9 @@ public class ArrayUtil {
 	public static void print(int n, int [] a)
 	{
 		String fmt = String.format("%%0%dd ", n);
-		
-		for (int i = 0; i < a.length; ++i)
-			System.out.printf(fmt, a[i]);
+
+		for (int j : a)
+			System.out.printf(fmt, j);
 		
 		System.out.println();
 		
@@ -204,8 +205,8 @@ public class ArrayUtil {
 	
 	public static void print(double [] a)
 	{
-		for (int i = 0; i < a.length; ++i)
-			System.out.printf("%f ", a[i]);
+		for (double val : a)
+			System.out.printf("%f ", val);
 		
 		System.out.println();
 		
@@ -213,8 +214,19 @@ public class ArrayUtil {
 
 	public static void print(String [] s)
 	{
-		for (int i = 0; i < s.length; ++i)
-			System.out.println(s[i]);
+		for (String str : s)
+			System.out.println(str);
+	}
+
+	public static void print(int [][] a)
+	{
+		print(1, a);
+	}
+
+	public static void print(int n, int [][] a)
+	{
+		for (int [] val : a)
+			print(n, val);
 	}
 	
 	public static void reverse(int [] a)
@@ -273,8 +285,8 @@ public class ArrayUtil {
 	public static int sum(int [] a)
 	{
 		int result = 0;
-		for (int i = 0; i < a.length; ++i)
-			result += a[i];
+		for (int val : a)
+			result += val;
 		
 		return result;
 	}
